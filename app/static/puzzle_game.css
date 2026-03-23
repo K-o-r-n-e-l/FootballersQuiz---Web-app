@@ -1,0 +1,154 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #fff7ae 0%, #ffe9a7 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    overflow: hidden;
+}
+
+.background-blur {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    background: inherit;
+    filter: blur(14px) brightness(0.97);
+}
+
+.puzzle-container {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 251, 210, 0.96);
+    border-radius: 28px 24px 32px 26px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+    padding: 44px 36px 36px 36px;
+    min-width: 370px;
+    max-width: 95vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    border: 1px solid #000000;
+}
+
+.puzzle-container h1 {
+    margin-bottom: 25px;
+    color: #000000;
+    font-weight: 700;
+    font-size: 2.1em;
+    text-align: center;
+}
+
+.puzzle-info-row {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    justify-content: center;
+    margin-bottom: 18px;
+    font-size: 1.1em;
+    color: #7a6a00;
+    font-weight: 600;
+}
+
+.puzzle-letters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin: 24px 0 28px 0;
+}
+
+.puzzle-letter {
+    background: #ffe066;
+    color: #7a6a00;
+    border: 2px solid #e6c200;
+    border-radius: 10px;
+    font-size: 1.5em;
+    font-weight: 700;
+    padding: 12px 18px;
+    box-shadow: 0 2px 8px 0 #ffe06655;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+    user-select: none;
+    min-width: 32px;
+    text-align: center;
+}
+
+
+.puzzle-letter-space {
+    display: inline-block;
+    width: 32px; /* szerokość jak kafelek z literą */
+    height: 1px;
+    margin: 0 4px;
+}
+
+.puzzle-answer-form {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.puzzle-answer-form input[type="text"] {
+    width: 220px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1.5px solid #ffe066;
+    background: #fffbe6;
+    font-size: 1em;
+}
+
+.puzzle-answer-form button {
+    background: #ffe066;
+    color: #7a6a00;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 25px;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 2px 8px 0 #ffe06655;
+    transition: background 0.2s, color 0.2s;
+}
+
+.puzzle-answer-form button:hover {
+    background: #ffe066cc;
+    color: #bfa100;
+}
+
+.puzzle-messages {
+    color: #bfa100;
+    font-weight: 600;
+    margin: 10px 0 0 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.puzzle-abandon-form {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.puzzle-abandon-form button {
+    background: #ffe066;
+    color: #7a6a00;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 25px;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 2px 8px 0 #ffe06655;
+    transition: background 0.2s, color 0.2s;
+}
+
+.puzzle-abandon-form button:hover {
+    background: #ffe066cc;
+    color: #bfa100;
+}

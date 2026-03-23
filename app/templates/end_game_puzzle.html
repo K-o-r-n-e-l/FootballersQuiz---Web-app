@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Koniec gry – Rozsypywanka</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='end_game_puzzle.css') }}">
+</head>
+<body>
+    <div class="background-blur"></div>
+    <div class="endgame-puzzle-container">
+        <h1>🎉 Koniec gry! 🎉</h1>
+        <h2>Historia rund:</h2>
+        <table class="puzzle-history-table">
+            <thead>
+                <tr>
+                    <th>Runda</th>
+                    <th>Poprawna odpowiedź</th>
+                    <th>Wynik</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for runda, answer, success in player_history %}
+                <tr>
+                    <td>{{ runda }}</td>
+                    <td>{{ answer }}</td>
+                    <td>
+                        {% if success %}
+                            <span class="success-icon">✔️</span>
+                        {% else %}
+                            <span class="fail-icon">❌</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ url_for('puzzle_game') }}" class="endgame-btn">Zagraj ponownie</a>
+        <a href="{{ url_for('dashboard') }}" class="endgame-btn">Powrót do menu</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #fff7ae 0%, #ffe9a7 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    overflow: hidden;
+}
+
+.background-blur {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    background: inherit;
+    filter: blur(14px) brightness(0.97);
+}
+
+.dashboard-container {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 251, 210, 0.96);
+    border-radius: 28px 24px 32px 26px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+    padding: 44px 36px 36px 36px;
+    min-width: 370px;
+    max-width: 95vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #000000;
+    
+}
+
+.dashboard-container h1 {
+    margin-bottom: 30px;
+    color: #000000;
+    font-weight: 700;
+    font-size: 2.1em;
+    text-align: center;
+}
+
+.dashboard-container form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.dashboard-container button {
+    background: #ffe066;
+    color: #000000;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 32px;
+    font-size: 1.1em;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.10);
+    transition: background 0.2s, color 0.2s;
+}
+
+.dashboard-container button:hover {
+    background: #ffe066cc;
+    color: #bfa100;
+}

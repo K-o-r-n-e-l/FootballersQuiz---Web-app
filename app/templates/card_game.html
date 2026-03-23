@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zgadnij piłkarza!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='card_game.css') }}">
+</head>
+<body>
+
+    <div class="background-blur"></div>
+    <div class="game-container">
+        <h1 style="text-align: center;">Zgadnij piłkarza!</h1>
+
+        <!-- KARTY Z INFORMACJAMI -->
+        <div class="card-grid">
+            {% for idx in shuffled_indexes %}
+                <form method="POST" action="{{ url_for('reveal_hint') }}" style="margin:0;">
+                    <input type="hidden" name="hint_key" value="{{ idx }}">
+                    <button class="card{% if idx in revealed_indexes %} revealed{% endif %}" type="submit"
+                        {% if idx in revealed_indexes %}disabled{% endif %}
+                        style="padding:0; background:none; border:none;">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                {% if idx in revealed_indexes %}
+                                    <!-- Pusta frontowa strona po odkryciu -->
+                                {% else %}
+                                    Kliknij, aby odsłonić
+                                {% endif %}
+                            </div>
+                            <div class="card-back">
+                                {% if idx in revealed_indexes %}
+                                    {{ player_info[idx] }}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </button>
+                </form>
+            {% endfor %}
+        </div>
+        
+        <!-- POLE NA ODPOWIEDŹ I LICZBA PUNKTÓW -->
+        <div class="game-form-row">
+            <form method="POST" action="{{ url_for('card_game') }}" style="margin: 0;">
+                <input type="text" name="answer" placeholder="Podaj imię i nazwisko">
+                <button type="submit">Zgadnij</button>
+            </form>
+            <span class="points-label">Liczba punktów do zdobycia: {{ score }}</span>
+            <span class="points-label">Liczba punktów zdobytych: {{ points }}</span>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li style="color:red;">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}<br>
+        
+        <form action="{{ url_for('dashboard') }}" method="get">
+            <button type="submit">porzuć rozgrywkę</button>
+        </form>
+    </div>
+
+</body>
+</html>

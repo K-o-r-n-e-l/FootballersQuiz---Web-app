@@ -1,0 +1,6 @@
+Flask
+Flask-SQLAlchemy
+Flask-Login
+Flask-WTF
+mysql-connector-python
+email-validator

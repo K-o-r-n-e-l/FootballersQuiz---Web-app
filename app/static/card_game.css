@@ -1,0 +1,164 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #fff7ae 0%, #ffe9a7 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    overflow: hidden;
+}
+
+.background-blur {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    background: inherit;
+    filter: blur(14px) brightness(0.97);
+}
+
+.game-container {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 251, 210, 0.96);
+    border-radius: 28px 24px 32px 26px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+    padding: 44px 36px 36px 36px;
+    min-width: 400px;
+    max-width: 98vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #000000;
+    
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+    margin: 30px 0 30px 0;
+}
+
+.card, .card button, .card-inner, .card-front, .card-back {
+    width: 120px !important;
+    min-width: 120px !important;
+    max-width: 120px !important;
+    height: 80px !important;
+    min-height: 80px !important;
+    max-height: 80px !important;
+    box-sizing: border-box;
+}
+
+.card {
+    perspective: 800px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    position: relative;
+    /* Dodane dla spójności rozmiaru */
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+}
+
+.card-inner {
+    transition: transform 0.6s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
+    transform-style: preserve-3d;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+}
+
+.card:hover .card-inner {
+    box-shadow: 0 8px 32px 0 #ffe06699, 0 2px 8px 0 #e6c20044;
+    transform: translateY(-10px);
+}
+
+.card.revealed .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95em;
+    font-weight: 600;
+    box-shadow: 0 2px 8px 0 #ffe06655;
+    padding: 8px;
+    text-align: center;
+    word-break: break-word;
+    white-space: normal;
+    overflow-y: auto;
+}
+
+.card-front {
+    background: linear-gradient(120deg, #ffe066 60%, #fffbe6 100%);
+    color: #bfa100;
+    border: 2px solid #e6c200;
+    /* Ustawienie minimalnej szerokości i wysokości dla spójności */
+}
+
+.card-back {
+    background: #fffbe6;
+    color: #7a6a00;
+    border: 2px solid #ffe066;
+    transform: rotateY(180deg);
+}
+
+.card button:disabled {
+    cursor: default;
+    opacity: 1;
+}
+
+/* Pozostałe elementy gry */
+.game-form-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 18px;
+}
+
+input[type="text"] {
+    width: 220px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1.5px solid #ffe066;
+    background: #fffbe6;
+    font-size: 1em;
+}
+
+button[type="submit"] {
+    background: #ffe066;
+    color: #000000;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 25px;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 2px 8px 0 #ffe06655;
+    transition: background 0.2s, color 0.2s;
+}
+
+button[type="submit"]:hover {
+    background: #ffe066cc;
+    color: #bfa100;
+}
+
+.points-label {
+    font-weight: bold;
+    color: #bfa100;
+    font-size: 1.1em;
+}

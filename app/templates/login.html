@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logowanie</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="background-blur"></div>
+    <div class="login-container">
+        <h1>Logowanie</h1>
+        <!-- FORMULARZ LOGOWANIA -->
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.email.label }}<br>
+                {{ form.email(size=32) }}<br>
+                {% for error in form.email.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.password.label }}<br>
+                {{ form.password(size=32) }}<br>
+                {% for error in form.password.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+        <!-- LINK DO REJESTRACJI -->
+        <p>Nie masz jeszcze konta? <a href="{{ url_for('register') }}">Zarejestruj się tutaj</a></p>
+    </div>
+</body>
+</html>

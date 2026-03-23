@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Piłkarzy</title>
+</head>
+<body>
+    <h1>Lista Piłkarzy</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Narodowość</th>
+                <th>Pozycja</th>
+                <th>Obecny klub</th>
+                <th>Poprzedni klub</th>
+                <th>Gole</th>
+                <th>Asysty</th>
+                <th>Występy</th>
+                <th>Mistrzostwa Ligi</th>
+                <th>Tytuły Reprezentacyjne</th>
+                <th>UCL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for player in players %}
+            <tr>
+                <td>{{ player.first_name }}</td>
+                <td>{{ player.last_name }}</td>
+                <td>{{ player.nationality }}</td>
+                <td>{{ player.position }}</td>
+                <td>{{ player.current_club }}</td>
+                <td>{{ player.previous_club }}</td>
+                <td>{{ player.goals }}</td>
+                <td>{{ player.assists }}</td>
+                <td>{{ player.appearances }}</td>
+                <td>{{ player.league_titles }}</td>
+                <td>{{ player.national_titles }}</td>
+                <td>{{ player.ucl_titles }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>        
+    </table>
+</body>
+</html>

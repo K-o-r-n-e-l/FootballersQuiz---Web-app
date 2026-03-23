@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Piłkarska rozsypywanka</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='puzzle_game.css') }}">
+</head>
+<body>
+    <div class="background-blur"></div>
+    <div class="puzzle-container">
+        <h1>Piłkarska rozsypywanka</h1>
+        <div class="puzzle-info-row">
+            <span class="puzzle-round">Runda: {{ round_number }}</span>
+            <span class="puzzle-attempts">Pozostałe próby: {{ tries_left }}</span>
+        </div>
+        <div class="puzzle-letters">
+            {% for letter in display_answer %}
+                {% if letter == ' ' %}
+                    <span class="puzzle-letter-space"></span>
+                {% else %}
+                    <span class="puzzle-letter">{{ letter }}</span>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <form method="POST" class="puzzle-answer-form">
+            <input type="text" name="answer" placeholder="Podaj odpowiedź" autocomplete="off">
+            <button type="submit">Zgadnij</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="puzzle-messages">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <form action="{{ url_for('dashboard') }}" method="get" class="puzzle-abandon-form">
+            <button type="submit">Porzuć rozgrywkę</button>
+        </form>
+    </div>
+</body>
+</html>

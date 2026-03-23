@@ -21,9 +21,9 @@ Sklonuj repozytorium i przejdź do folderu projektu:
 ```bash
 git clone <LINK_DO_TWOJEGO_REPOZYTORIUM>
 cd footballers_quiz_project
+```
 Utwórz i aktywuj wirtualne środowisko:
-
-### 2. Utwórz i aktywuj wirtualne środowisko, a następnie zainstaluj biblioteki:
+```bash
 python -m venv venv
 # Aktywacja (Windows):
 venv\Scripts\activate
@@ -31,12 +31,19 @@ venv\Scripts\activate
 source venv/bin/activate
 # Instalacja zależności:
 pip install -r requirements.txt
-
-
-# Uruchom aplikację raz używajć run.py, aby wygenerować plik bazy i tabele, a następnie zamknij serwer (używając skrótu Ctrl+C):
+```
+### 2. Inicjalizacja bazy danych
+Uruchom aplikację raz, aby wygenerować plik bazy i tabele, a następnie zamknij serwer (Ctrl+C):
+```bash
 python run.py
-
-# Wypełnij bazę danych startową listą 30 słynnych piłkarzy:
+```
+Wypełnij bazę danych startową listą 30 słynnych piłkarzy:
+```bash
 python seed.py
-# Uruchom serwer ponownie i ciesz się grą:
+```
+### 3. Uruchomienie gry
+Uruchom serwer ponownie i ciesz się grą:
+```bash
 python run.py
+```
+Adres lokalny: https://www.google.com/search?q=http://127.0.0.1:5000

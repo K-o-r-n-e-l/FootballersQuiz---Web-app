@@ -1,20 +1,20 @@
-# ⚽ Footballers Quiz App
+# Footballers Quiz App
 
 Interaktywna aplikacja webowa typu quiz, stworzona w Pythonie z wykorzystaniem frameworka Flask. Projekt pozwala użytkownikom testować swoją wiedzę o piłkarzach poprzez odgadywanie ich tożsamości na podstawie statystyk lub rozszyfrowywanie nazwisk z pomieszanych liter.
 
-## 🌟 Funkcje aplikacji
+## Funkcje aplikacji
 * **System kont**: Rejestracja i logowanie z bezpiecznym hashowaniem haseł.
 * **Card Game**: Odgadnij piłkarza na podstawie odkrywanych kafelków z informacjami takimi jak narodowość, kluby czy liczba bramek.
 * **Puzzle Game**: Wyzwanie polegające na poprawnym wpisaniu nazwiska gracza z przemieszanych liter.
 * **Automatyczna Baza**: System sam generuje strukturę tabel przy pierwszym uruchomieniu.
 
-## 🛠️ Stos technologiczny
+## Użyte technologie
 * **Język**: Python 3.x
 * **Framework**: Flask
 * **Baza danych**: SQLAlchemy (SQLite)
 * **Formularze**: Flask-WTF
 
-## 🚀 Instrukcja szybkiego startu
+## Instrukcja szybkiego startu
 
 ### 1. Przygotowanie środowiska
 Sklonuj repozytorium i przejdź do folderu projektu:
